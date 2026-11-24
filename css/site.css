@@ -1,0 +1,80 @@
+/* Styles for the WebPlate showcase page itself (not needed in your own site). */
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; min-height: 100vh; }
+a { color: inherit; }
+
+.top { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; padding: 0 24px; border-bottom: 1px solid var(--wp-line); background: color-mix(in srgb, var(--wp-bg) 88%, transparent); backdrop-filter: blur(8px); }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; text-decoration: none; letter-spacing: -.01em; }
+.logo-mark { display: grid; grid-template-columns: repeat(2, 8px); gap: 3px; }
+.logo-mark i { width: 8px; height: 8px; border-radius: 2px; background: var(--wp-fg); }
+.logo-mark i:nth-child(2) { background: var(--wp-accent); }
+.top-actions { display: flex; align-items: center; gap: 8px; }
+.theme-icon-dark { display: none; }
+:root[data-theme="dark"] .theme-icon-light { display: none; }
+:root[data-theme="dark"] .theme-icon-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .theme-icon-light { display: none; }
+  :root:not([data-theme]) .theme-icon-dark { display: block; }
+}
+
+.shell { display: grid; grid-template-columns: 220px minmax(0, 1fr); max-width: 1240px; margin: 0 auto; }
+.side { position: sticky; top: 60px; align-self: start; height: calc(100vh - 60px); overflow-y: auto; padding: 24px 12px 24px 24px; }
+.side p { margin: 0 0 8px 8px; color: var(--wp-fg-3); font-size: 12px; font-weight: 500; }
+.side a { display: block; padding: 6px 8px; border-radius: 8px; color: var(--wp-fg-2); font-size: 14px; text-decoration: none; transition: background-color var(--wp-fast) var(--wp-ease), color var(--wp-fast) var(--wp-ease); }
+.side a:hover { background: var(--wp-surface-2); color: var(--wp-fg); }
+.side a.is-here { background: var(--wp-surface); color: var(--wp-fg); box-shadow: var(--wp-shadow-sm); }
+.main { min-width: 0; padding: 0 24px 96px; }
+
+.intro { padding: 56px 0 24px; }
+.intro h1 { margin: 0; font-size: clamp(36px, 6vw, 64px); line-height: 1; letter-spacing: -.03em; }
+.intro h1 span { color: var(--wp-accent); }
+.intro p { max-width: 52ch; margin: 16px 0 0; color: var(--wp-fg-2); font-size: 18px; }
+.intro .wp-row { margin-top: 24px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 24px 0 0; padding: 0; list-style: none; color: var(--wp-fg-3); font-size: 13px; }
+.facts b { color: var(--wp-fg); font-weight: 600; }
+
+.sec { padding-top: 56px; }
+.sec > h2 { margin: 0; font-size: 26px; letter-spacing: -.01em; }
+.sec > p { max-width: 60ch; margin: 6px 0 0; color: var(--wp-fg-2); }
+.sub { margin: 28px 0 10px; font-size: 13px; font-weight: 600; color: var(--wp-fg-3); }
+
+.demo { margin-top: 12px; border: 1px solid var(--wp-line); border-radius: var(--wp-r-lg); background: var(--wp-surface); overflow: hidden; }
+.demo-stage { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 24px; }
+.demo-stage.is-block { display: block; }
+.demo-stage.is-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); align-items: stretch; gap: 16px; }
+.demo-stage.is-tint { background: var(--wp-bg); }
+.demo-code { border-top: 1px solid var(--wp-line); }
+.demo-code > summary { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; color: var(--wp-fg-2); font-size: 13px; cursor: pointer; list-style: none; }
+.demo-code > summary::-webkit-details-marker { display: none; }
+.demo-code > summary::before { content: "Show code"; }
+.demo-code[open] > summary::before { content: "Hide code"; }
+.demo-code > summary .wp-btn { margin-left: auto; }
+.demo-code pre { margin: 0; max-height: 360px; overflow: auto; padding: 16px; border-top: 1px solid var(--wp-line); background: var(--wp-bg); font: 12.5px/1.6 var(--wp-mono); color: var(--wp-fg-2); tab-size: 2; }
+
+/* button animation gallery */
+.fx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 12px; }
+.fx { display: grid; justify-items: center; gap: 12px; padding: 24px 12px 14px; border: 1px solid var(--wp-line); border-radius: var(--wp-r-lg); background: var(--wp-surface); }
+.fx-name { display: grid; justify-items: center; gap: 2px; text-align: center; }
+.fx-name b { font-size: 13px; font-weight: 600; }
+.fx-name span { color: var(--wp-fg-3); font-size: 12px; }
+.fx-name code { padding: 1px 6px; border-radius: 5px; background: var(--wp-surface-2); color: var(--wp-fg-2); font: 11.5px/1.6 var(--wp-mono); cursor: pointer; }
+.fx-name code:hover { color: var(--wp-fg); }
+
+/* layout previews */
+.frame { overflow: hidden; border: 1px solid var(--wp-line); border-radius: var(--wp-r); background: var(--wp-bg); }
+.ph { border-radius: var(--wp-r); background: repeating-linear-gradient(135deg, var(--wp-surface-2) 0 8px, var(--wp-surface-3) 8px 16px); }
+.media-ph { display: block; aspect-ratio: 16 / 9; border-radius: calc(var(--wp-r-lg) - 1px) calc(var(--wp-r-lg) - 1px) 0 0; background: repeating-linear-gradient(135deg, var(--wp-surface-2) 0 10px, var(--wp-surface-3) 10px 20px); }
+
+.foot { margin-top: 96px; padding-top: 24px; border-top: 1px solid var(--wp-line); color: var(--wp-fg-3); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .shell { display: block; }
+  .side { position: sticky; top: 60px; z-index: 40; display: flex; gap: 4px; height: auto; overflow-x: auto; padding: 8px 16px; border-bottom: 1px solid var(--wp-line); background: var(--wp-bg); scrollbar-width: none; }
+  .side::-webkit-scrollbar { display: none; }
+  .side p { display: none; }
+  .side a { flex: none; }
+  html { scroll-padding-top: 116px; }
+  .main { padding: 0 16px 64px; }
+  .top { padding: 0 16px; }
+  .demo-stage { padding: 16px; }
+}
